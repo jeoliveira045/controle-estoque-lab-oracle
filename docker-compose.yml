@@ -1,0 +1,11 @@
+services:
+    controle_estoque_db:
+        image: oracle/database:19.3.0-ee
+        container_name: controle_estoque_db
+        volumes:
+          - ./src/main/resources/docker:/docker-entrypoint-initdb.d/startup
+        environment:
+          - ORACLE_PWD=123
+          - ORACLE_SID=xe
+        ports:
+          - 1521:1521

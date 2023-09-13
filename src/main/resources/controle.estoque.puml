@@ -1,0 +1,44 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+'autonumber
+class Bebida{
+ - id: Long {id}
+ - nome: String
+ - tipo: String
+ - volume: String
+ - PrecoDaCompra: Double
+ - PrecoDaVenda: Double
+ - fornecedor: String
+ - codigoBarras: String
+ - quantidadeDisponivel: String
+ - dataPedidoForc: Date
+ - dataEntregaForc: Date
+ -- <b>Tagged Values</b> --
+ api-path=/api/bebidas
+}
+
+class Fornecedor{
+ - id: Long
+ - nomeDaEmpresa: String
+ - endereço: String
+ -- <b>Tagged Values</b>--
+ api-path=/api/lotes
+}
+
+
+'class Movimentacao{
+'    - id: Long
+'    - movTipoEntrada: Entrada
+'    - movTipoSaída: Saida
+'    - movData: Date
+'    - movItem: String
+'     -- <b>Tagged Values</b>--
+'     api-path=/api/mov
+'}
+Fornecedor "1..*" --> "1..*" Bebida
+'Movimentacao "1" --> "1..*" Lote
+
+
+
+@enduml
